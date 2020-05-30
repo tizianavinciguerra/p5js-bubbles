@@ -4,6 +4,7 @@ let size = [10, 20, 30, 15];
 let y;
 
 function setup() {
+  bg = loadImage('rainbow.jpg');
   y = height;
   createCanvas(400, 400);
   //For Loop
@@ -29,13 +30,13 @@ function mousePressed() {
 
 
 function draw() {
+  background(bg);
   if (millis() > timer) {
     newBubble = new Bubble(random(width), 500, random(10, 50));
     bubbles.push(newBubble);
     timer = timer + 800;
   }
 
-  background(0, 57, 76);
   //For of Loop
   for (let bubble of bubbles) {
     if (bubble.insideBubble() == true) {
@@ -73,7 +74,7 @@ class Bubble {
   show() {
     stroke(this.stroke, 255);
     strokeWeight(2);
-    fill(this.brightness, 100);
+    fill(this.brightness, 50);
     ellipse(this.x, this.y, this.r * 2);
   }
 
